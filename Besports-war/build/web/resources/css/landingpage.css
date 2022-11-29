@@ -1,0 +1,508 @@
+/* Importando fuentes */
+@font-face {
+    font-family: "Popins";
+    src: url(../fonts/Poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Tourney";
+    src: url(../fonts/Tourney/Tourney-WideHeavyItalic.otf);
+}
+
+@font-face {
+    font-family: "Poppins-Semi";
+    src: url(../fonts/Poppins/Poppins-SemiBoldItalic.ttf);
+}
+
+/* ---- reset ---- */
+body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    min-width: 110px;
+
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+#stats,
+.count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.count-particles {
+    border-radius: 0 0 3px 3px;
+}
+
+/* Utilidades */
+img
+{
+    max-width: 80%;
+}
+
+
+.contenedor
+{
+    max-width: 900px;
+    margin: 0 auto;
+    width: 99%;
+}
+
+/* Mis estilos */
+.containerHeader
+{
+    width: 100%;
+    height: 90vh;
+    background: rgb(248, 248, 248);
+    background: linear-gradient(90deg, #dadadc 0%, #696969 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.containMain
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 3rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.containMain .item
+{
+
+}
+
+.item
+{
+    font-family: "Poppins-Semi";
+    font-weight: lighter;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: none;
+    color:#D61053;
+}
+
+.item p
+{
+    font-size: 18px;
+    color: black;
+    font-family: "Poppins-Semi";
+    line-height: 1rem;
+    margin: 2rem 0;
+}
+
+.item button
+{
+    width: 10rem;
+    height: 3rem;
+    background: #D60B52;
+    font-family: "Poppins";
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 70px;
+    border: 5px solid #D60B52;
+    cursor: pointer;
+}
+
+.item:nth-of-type(2)
+{
+    display: flex;
+    justify-content: center;
+    align-items: centers;
+}
+
+/* Navegación */
+
+nav
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    padding: .5rem 0;
+
+}
+
+nav .contenedor
+{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.contenedor .containerL
+{
+    padding-top: 20px;
+    display: inherit;
+    align-items: center;
+}
+
+.containerLinks
+{
+    margin-left: 0.3rem;
+}
+
+.containerLinks a
+{
+    margin-right: 1rem;
+    color: #000000;
+    font-family: "Poppins-SemiBold";
+    font-size: 22px;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+
+.containerR
+{
+    display: inherit;
+    align-items: center;
+
+}
+
+.containerR button
+{
+    width: 9rem;
+    height: 3rem;
+    border-radius: 60px;
+    background-color: #D60B52;
+    border: 3px solid #D60B52;
+    font-family: "Poppins";
+    font-size: 1rem;
+    color: #FFF;
+    outline: none;
+    cursor: pointer;
+}
+
+/*Modúlos*/
+
+.about
+{
+    text-align: center;
+}
+
+.subtitle {
+    color: #D60B52;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.about__paragraph
+{
+    line-height: 1.9;
+    font-size: 20px;
+    font-family: "Poppins";
+}
+
+.about__title
+{
+    font-size: 20px;
+    font-family: "Poppins";
+}
+
+.about__paragrah
+{
+    font-size: 18px;
+    font-family: "Poppins";
+}
+
+.about__main
+{
+    padding-top: 50px;
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+.about__icons
+{
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.about__icon
+{
+    width: 250px;
+}
+
+/*Funcionalidades*/
+
+.knowledge {
+    background-color: #cccccc;
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    overflow: hidden;
+    padding-top: 25px;
+    display: grid;
+}
+
+.knowledge__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.knowledge__picture{
+    max-width: 500px;
+}
+
+.knowledge__paragraph{
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: "Poppins";
+}
+
+.knowledge__img{
+    width: 100%;
+    display: block;
+}
+
+.knowledege__texts
+{
+    line-height: 1.9;
+    font-size: 18px;
+    font-family: "Poppins";
+    margin-bottom: 15px;
+}
+
+/*Contactenos*/
+
+
+.forms
+{
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    margin: auto;
+    max-width: 400px;
+    border-radius: 1em;
+    padding: 3.5em 1.5em;
+}
+
+.form_tittle
+{
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: .4em;
+}
+
+.form_container
+{
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-auto-columns: 100%;
+}
+
+.form_input
+{
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .8em 1em;
+    outline: none;
+    border: none;
+    border: 1px solid #D60B52;
+    border-radius: 0.2em;
+}
+
+.form_input--message
+{
+    resize: none;
+    padding: 1.8em 1em;
+    margin-bottom: .5em;
+}
+
+.form_cta
+{
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #D60B52;
+    color: #FFF;
+    border: none;
+    font-weight: 300;
+    padding: .7em 0;
+    border-radius: .2em;
+    cursor: pointer;
+}
+
+
+
+/*Footer*/
+.pie-pagina{
+    width: 100%;
+    background: linear-gradient(90deg, #dadadc 0%, #696969 100%);
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: rgb(0, 0, 0);
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #000000;
+    margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: rgb(0, 0, 0);
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.pie-pagina .grupo-2{
+    background-color: #D60B52;
+    padding: 15px 10px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: "Poppins";
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+
+.social-text
+{
+    padding: 0.7rem 0;
+    font-size: 1rem;
+}
+
+.social-media
+{
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon
+{
+    height: 46px;
+    width: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.45rem;
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: 1px solid rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.social-icon:hover
+{
+    color: #FFED00;
+    border-color: #FFED00;
+}
+
+/* Responsive */
+
+@media (max-width: 800px)
+{
+    .item
+    {
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 20px;
+        font-size: 1.2rem;
+    }
+
+    .item img
+    {
+        min-width: 90px;
+    }
+
+    .pie-pagina .grupo-1
+    {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+
+    .contacto
+    {
+        padding: 3.5em 1em;
+    }
+}

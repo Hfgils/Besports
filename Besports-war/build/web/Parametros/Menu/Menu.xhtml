@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="head">
+
+
+    </ui:define>
+    <ui:define name="content">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="dashboard-title">
+                            <h2>Costumer Service</h2>
+                            <i class="fa fa-map-marker" style="display:inline-block;"></i>
+                            <p style="display:inline-block;">San Francisco</p>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 dashboard-buttons">
+                        <button type="button"><i class="fa fa-floppy-o" aria-hidden="true"></i> </button>
+                        <button type="button"><i class="fa fa-trash" aria-hidden="true"></i> </button>
+                        <button type="button"><i class="fa fa-print" aria-hidden="true"></i> </button>
+                    </div>
+
+                </div>
+            </div>
+            <div id="main-wrapper-content">
+                <h:form>
+                    <p:panel header="Menu">
+
+                        <p:messages />
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Abreviatura: *" />
+                            <p:inputText value="#{estadoCivilController.estadoCivil.nombre}" required="true" label="Firstname"/>
+
+                            <h:outputText value="Descripción: *" />
+                            <p:inputText value="#{estadoCivilController.estadoCivil.descripcion}" required="true" label="Lastname"/>
+
+                            <h:outputText value="Estado: " />
+                            <h:selectBooleanCheckbox value="#{estadoCivilController.estadoCivil.estado}" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="1" columnClasses="label, value">
+                            <p:commandButton value="Submit" actionListener="#{estadoCivilController.add()}"  update="@form" />
+                        </h:panelGrid>
+                    </p:panel>
+
+                    <p:growl id="messages" showDetail="true" />
+
+                    <p:dataTable var="Tconf" value="#{menuController.menus}" paginator="true"  rows="10" 
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="10,20,30,40,50">
+
+                        <p:column headerText="ID" sortBy="#{Tconf.idMenu}" filterBy="#{Tconf.idMenu}">
+                            <h:outputText value="#{Tconf.idMenu}">
+
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Nombre" sortBy="#{Tconf.nombreMenu}" filterBy="#{Tconf.nombreMenu}">
+                            <h:outputText value="#{Tconf.nombreMenu}">
+
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Detalle" sortBy="#{Tconf.menuRuta}" filterBy="#{Tconf.menuRuta}">
+                            <h:outputText value="#{Tconf.menuRuta}">
+
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="ESTADO" sortBy="#{Tconf.iconoMenu}" filterBy="#{Tconf.iconoMenu}">
+                            <h:outputText value="#{Tconf.iconoMenu}">
+
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Detalle" sortBy="#{Tconf.menuPadre.nombreMenu}" filterBy="#{Tconf.menuPadre.nombreMenu}">
+                            <h:outputText value="#{Tconf.menuPadre.nombreMenu}">
+
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Detalle" sortBy="#{Tconf.nivelMenu}" filterBy="#{Tconf.nivelMenu}">
+                            <h:outputText value="#{Tconf.nivelMenu}">
+
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Detalle" sortBy="#{Tconf.estado}" filterBy="#{Tconf.estado}">
+                            <h:outputText value="#{Tconf.estado}">
+
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                    <p:separator />
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>

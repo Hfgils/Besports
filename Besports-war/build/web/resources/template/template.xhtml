@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <f:event type="preRenderView" listener="#{templatecontroller.sessionvalidate()}"/>
+
+
+
+        <title>Besports</title>
+        <h:outputScript name="nanoscroller.js" library="js" />
+        <h:outputScript name="layout.js" library="js" />
+        <h:outputScript name="calendar-localization.js" library="js" />
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+
+        <ui:insert name="head"/>
+        <style type="text/css">
+            .ui-growl .ui-state-highlight.ui-growl-info {
+                color: #fff;
+                background: #9CCC65;
+                border-color: #9CCC65; }
+            </style>
+          <link rel="shortcut icon"  href="#{resource['images/icon/logo.svg']}" type="image/x-icon"/>
+        </h:head>
+
+        <h:body>
+            <div class="wrapper">
+
+            <div id="sidebar-wrapper">
+                <ui:include src="sidebarheader.xhtml" />
+
+                <div class="sidebar-nav nano">
+                    <div class="nano-content sidebar-scroll-content">
+                        <ui:include src="layoutmenu.xhtml" />
+                    </div>
+                </div>
+            </div>   
+
+            <ui:include src="topbar.xhtml" />         
+
+            <div id="main-wrapper">
+                <div class="main-content">
+                    <ui:insert name="content"></ui:insert>
+                </div>
+
+                <ui:include src="footer.xhtml" />
+            </div>
+        </div>
+
+        <p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+            <f:facet name="start">
+                <p:graphicImage name="preloader.gif" library="images" style="width: 32px;"/>
+            </f:facet>
+
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+
+        <h:outputStylesheet name="animate.css" library="css" />
+        <h:outputStylesheet name="nanoscroller.css" library="css" />
+        <h:outputStylesheet name="/layout/layout-#{guestPreferences.theme}.css" library="css" />
+    </h:body>
+
+</html>

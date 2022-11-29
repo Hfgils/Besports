@@ -1,0 +1,114 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="container">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <div class="card">
+                        <h1>Usarios  </h1>
+                        <h:form id="Fpersonas">
+                            <p:panelGrid columns="4" layout="grid"  styleClass="ui-panelgrid-blank">
+                                <p:outputLabel for="tdoc" value="Tipo Documento: " />
+                                <p:selectOneMenu style="width:110px" id="tdoc"  value="#{usuarioController.personas.idTipodocumento}" effect="fold"  filter="true" filterMatchMode="startsWith">
+                                    <f:selectItem itemLabel="Select One" itemValue="0" />
+                                    <f:selectItems value="#{usuarioController.tdocumentos}" var="p" itemLabel="#{p.valorConfiguracion}" itemValue="#{p.idTipoConf}" itemDescription="#{p.descripcion}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="doc" value="Documento:" />
+                                <p:inputText id="doc" value="#{usuarioController.personas.documento}" required="true">
+
+                                </p:inputText>
+
+                                <p:outputLabel for="pnombre" value="Primer nombre:" />
+                                <p:inputText id="pnombre" value="#{usuarioController.personas.primerNombre}" required="true" onblur="value = value.toUpperCase()" style="text-transform: uppercase">
+
+                                </p:inputText>
+
+                                <p:outputLabel for="snombre" value="Segundo nombre:" />
+                                <p:inputText id="snombre" value="#{usuarioController.personas.segundoNombre}" onblur="value = value.toUpperCase()" style="text-transform: uppercase">
+
+                                </p:inputText>
+
+                                <p:outputLabel for="papellido" value="Primer apellido:" />
+                                <p:inputText id="papellido" value="#{usuarioController.personas.primerApellido}" required="true" onblur="value = value.toUpperCase()" style="text-transform: uppercase">
+
+                                </p:inputText>
+
+
+                                <p:outputLabel for="sapellido" value="Segundo apellido:" />
+                                <p:inputText id="sapellido" value="#{usuarioController.personas.segundoApellido}" onblur="value = value.toUpperCase()" style="text-transform: uppercase">
+
+                                </p:inputText>
+
+                                <p:outputLabel for="fnac" value="Fecha Nacimiento:" />
+                                <p:calendar id="fnac" value="#{usuarioController.personas.fechaNacimiento}" showOn="button" locale="es" />
+
+                                <p:outputLabel for="pnac" value="Nacionalidad: " />
+                                <p:selectOneMenu id="pnac" value="#{usuarioController.paisnac.idPais}"  filter="true" filterMatchMode="startsWith" >
+                                    <f:selectItem itemLabel="" itemValue="0" noSelectionOption="false" />
+                                    <f:selectItems value="#{usuarioController.paisnacs}" var="p" itemLabel="#{p.nombrePais}" itemValue="#{p.idPais}" />
+                                    <p:ajax listener="#{usuarioController.paisnacChange}" rendered=":Fpersonas:dnac"  process=":Fpersonas:pnac" update=":Fpersonas:dnac :Fpersonas:cnaci" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="dnac" value="Departamento: " />
+                                <p:selectOneMenu id="dnac" value="#{usuarioController.departamentonac.idDepartamento}" disabled="#{usuarioController.paisnac.idPais eq null or usuarioController.paisnac.idPais eq 0}" filter="true" filterMatchMode="startsWith" style="width: 50%">
+                                    <f:selectItem itemLabel="" itemValue="0" noSelectionOption="false" />
+                                    <f:selectItems value="#{usuarioController.departamentosnac}"  var="denac" itemLabel="#{denac.nombreMunicipio}" itemValue="#{denac.idDepartamento}" />
+                                    <p:ajax listener="#{usuarioController.departamentonacChange}" rendered=":Fpersonas:cnaci" process=":Fpersonas:dnac" update=":Fpersonas:cnaci" />
+                                </p:selectOneMenu>
+
+
+                                <p:outputLabel for="cnaci" value="Municipio: " />
+                                <p:selectOneMenu id="cnaci" value="#{usuarioController.personas.ciudadNacimiento}" disabled="#{usuarioController.paisnac.idPais eq null or usuarioController.paisnac.idPais eq 0 or usuarioController.departamentonac.codDaneDep eq null or usuarioController.departamentonac.codDaneDep eq 0}" filter="true" filterMatchMode="startsWith">
+                                    <f:selectItem itemLabel="" itemValue="0" noSelectionOption="false" />
+                                    <f:selectItems value="#{usuarioController.municipiosnac}"  var="denac" itemLabel="#{denac.nombreMunicipio}" itemValue="#{denac.idMunicipio}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="perfil" value="Perfil: " />
+                                <p:selectOneMenu id="perfil" value="#{usuarioController.perfil.idPerfil}"  filter="true" filterMatchMode="startsWith">
+                                    <f:selectItem itemLabel="" itemValue="0" noSelectionOption="false" />
+                                    <f:selectItems value="#{usuarioController.perfiles}"  var="per" itemLabel="#{per.nombrePerfil}" itemValue="#{per.idPerfil}" />
+                                </p:selectOneMenu>
+                                <p:outputLabel for="usu" value="Email:" />
+                                <p:inputText id="usu" value="#{usuarioController.usuario.nombreUsuario}" required="true">
+                                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                </p:inputText>
+
+                                <p:outputLabel for="tcon" value="Tipo Autenticación:"  />
+                                <p:selectOneMenu id="tcon" value="#{usuarioController.usuario.ldapLogin}"  filter="true" filterMatchMode="startsWith">
+                                   
+                                    <f:selectItem itemLabel="Ldap" itemValue="#{true}" />
+                                    <f:selectItem itemLabel="Local" itemValue="#{false}" />
+                                    <p:ajax update="pass,pass1" /> 
+
+                                </p:selectOneMenu>
+
+
+
+                                <p:outputLabel for="pass" value="Clave:"  />
+                                <p:password id="pass" value="#{usuarioController.usuario.password}" feedback="true" match="pass1" disabled="#{usuarioController.usuario.ldapLogin eq null or usuarioController.usuario.ldapLogin eq true}"/>
+
+                                <p:outputLabel for="pass1" value="Confirmar Clave:" />
+                                <p:password id="pass1" value="#{usuarioController.usuario.password}" feedback="true" disabled="#{usuarioController.usuario.ldapLogin eq null or usuarioController.usuario.ldapLogin eq true}" />
+
+
+
+                            </p:panelGrid>
+                            <h:panelGrid columns="1" columnClasses="label, value">
+                                <p:commandButton value="Submit" actionListener="#{usuarioController.add()}"  update="Fpersonas" />
+                            </h:panelGrid>
+                            <p:growl id="messages" showDetail="true" />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define> 
+
+</ui:composition>

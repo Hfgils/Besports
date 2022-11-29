@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="head">
+
+
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card centerText">
+
+                    <div id="main-wrapper-content">
+                        <h:form id="Tipo_conf">
+                            <p:panel header="Tipo Configuracion" style="width:20%">
+                                <h:panelGrid columns="2" >
+                                    <h:outputText value="Nombre: *" />
+                                    <p:inputText value="#{tipoConfiguracionController.tipoConfiguracion.nombre}" required="true" label="Lastname"/>
+                                    <h:outputText value="Detalle: *" />
+                                    <p:inputText value="#{tipoConfiguracionController.tipoConfiguracion.detalle}" required="true" label="Lastname"/>
+                                    <h:outputText value="Estado: " />
+                                    <h:selectBooleanCheckbox value="#{tipoConfiguracionController.tipoConfiguracion.estado}" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="1" > 
+                                    <p:commandButton value="Guardar" update="Tipo_conf,EstadoCivil" actionListener="#{tipoConfiguracionController.add()}" styleClass="ui-priority-primary" >
+
+                                    </p:commandButton>
+                                </h:panelGrid>
+
+                            </p:panel>
+
+                            <p:dataTable var="Tconf" value="#{tipoConfiguracionController.allValo}" paginator="true"  rows="10" 
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="10,20,30,40,50">
+
+                                <p:column headerText="ID" sortBy="#{Tconf.id}" filterBy="#{Tconf.id}">
+                                    <h:outputText value="#{Tconf.id}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Nombre" sortBy="#{Tconf.nombre}" filterBy="#{Tconf.nombre}">
+                                    <h:outputText value="#{Tconf.nombre}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Detalle" sortBy="#{Tconf.detalle}" filterBy="#{Tconf.detalle}">
+                                    <h:outputText value="#{Tconf.detalle}">
+
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="ESTADO" sortBy="#{Tconf.estado}" filterBy="#{Tconf.estado}">
+                                    <h:outputText value="#{Tconf.estado}">
+
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                    <p:separator />
+
+                    <div id="main-wrapper-content">
+                        <h:form id="EstadoCivil" style="align-items: center ">
+                            <p:panel header="Valor configuracion" style="width: 30%">
+
+                                <h:panelGrid columns="2" >
+
+                                    <p:outputLabel for="pnac" value="Tipo Configuración: " />
+                                    <p:selectOneMenu id="pnac" value="#{valorConfController.tipoConfiguracion.id}"  filter="true" filterMatchMode="startsWith">
+                                        <f:selectItems value="#{valorConfController.tipoConfiguracions}" var="p" itemLabel="#{p.nombre}" itemValue="#{p.id}" />
+
+                                    </p:selectOneMenu>
+
+                                    <h:outputText value="Nombre: *" />
+                                    <p:inputText value="#{valorConfController.valorConfiguracion.nombre}" required="true" label="Lastname"/>
+                                    <h:outputText value="Valor: *" />
+                                    <p:inputText value="#{valorConfController.valorConfiguracion.valor}" required="true" label="Firstname"/>
+                                    <h:outputText value="Estado: " />
+                                    <h:selectBooleanCheckbox value="#{valorConfController.valorConfiguracion.estado}" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="1" columnClasses="label, value">
+                                    <p:commandButton value="Guardar"  update="EstadoCivil" actionListener="#{valorConfController.add()}" styleClass="ui-priority-primary" >
+
+                                    </p:commandButton>
+                                </h:panelGrid>
+                            </p:panel>
+
+                            <p:dataTable var="are" value="#{valorConfController.allValo}" paginator="true"  rows="10" 
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="10,20,30,40,50">
+
+                                <p:column headerText="ID" sortBy="#{are.id}" filterBy="#{are.id}">
+                                    <h:outputText value="#{are.id}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Tipo Configuración" sortBy="#{are.idTipoConf.nombre}" filterBy="#{are.idTipoConf.nombre}">
+                                    <h:outputText value="#{are.idTipoConf.nombre}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Nombre" sortBy="#{are.nombre}" filterBy="#{are.nombre}">
+                                    <h:outputText value="#{are.nombre}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Valor" sortBy="#{are.valor}" filterBy="#{are.valor}">
+                                    <h:outputText value="#{are.valor}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="ESTADO" sortBy="#{are.estado}" filterBy="#{are.estado}">
+                                    <h:outputText value="#{are.estado}">
+
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

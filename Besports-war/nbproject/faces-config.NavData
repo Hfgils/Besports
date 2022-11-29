@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="resources/error/error.xhtml" x="1008" y="201" zoom="true"/>
+        <Node id="resources/template/sidebarheader.xhtml" x="1518" y="381" zoom="true"/>
+        <Node id="index.xhtml" x="192" y="470" zoom="true"/>
+        <Node id="resources/error/404.xhtml" x="542" y="354" zoom="true"/>
+        <Node id="Parametros/Configuracion/ValorTipoConf.xhtml" x="430" y="462" zoom="true"/>
+        <Node id="resources/error/access-denied.xhtml" x="544" y="49" zoom="true"/>
+        <Node id="resources/template/topbar.xhtml" x="312" y="90" zoom="true"/>
+        <Node id="Parametros/Menu/Menu.xhtml" x="200" y="548" zoom="true"/>
+        <Node id="login.xhtml" x="210" y="360" zoom="true"/>
+        <Node id="Parametros/Perfil/Perfil.xhtml" x="250" y="251" zoom="true"/>
+        <Node id="resources/template/template.xhtml" x="238" y="195" zoom="true"/>
+        <Node id="resources/template/layoutmenu.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="Parametros/Usuarios/Usuarios.xhtml" x="232" y="317" zoom="true"/>
+        <Node id="Dashboard/Dashboard.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="resources/template/footer.xhtml" x="633" y="223" zoom="true"/>
+        <Node id="Parametros/Configuracion/ValorTipoConf1.xhtml" x="981" y="49" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

@@ -1,0 +1,146 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>  
+        </script>
+        <style type="text/css">
+            .main-content {
+                padding: 0;
+            }
+
+            #main-wrapper-content {
+                padding: 10px;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6">
+                        <div class="dashboard-title">
+                            <h2>Dashboard</h2>
+                            <!--
+                           <i class="fa fa-map-marker" style="display:inline-block;"></i>
+                           <p style="display:inline-block;">San Francisco</p>
+                            -->
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 dashboard-buttons">
+                        <!--
+                        <button type="button"><i class="fa fa-floppy-o" aria-hidden="true"></i> </button>
+                        <button type="button"><i class="fa fa-trash" aria-hidden="true"></i> </button>
+                        <button type="button"><i class="fa fa-print" aria-hidden="true"></i> </button>
+                        -->
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="main-wrapper-content">
+                
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="box greenBack">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <h2>ISSUES CLOSED</h2>
+                            <p>631</p>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="box blueBack">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <h2>LATEST CALL</h2>
+                            <p>2 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="box redBack">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                            <h2>CALLS TODAY</h2>
+                            <p>42</p>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="box yellowBack">
+                            <i class="fa fa-archive" aria-hidden="true"></i>
+                            <h2>MESSAGE BOX</h2>
+                            <p>124</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="ui-g">
+
+                    <!--
+                   
+                                       <div class="ui-g-12 ui-md-4 ui-fluid">
+                                           <p:panel header="Contact Us" style="background:#fff;height:100%">
+                                               <div class="ui-g-12">
+                   
+                                                   <div class="ui-g-12">
+                                                       <p:inputText placeholder="Name" />
+                                                   </div>
+                                                   <div class="ui-g-12">
+                                                       <p:inputTextarea placeholder="Message" autoResize="false"/>
+                                                   </div>
+                                               </div>
+                                               <p:commandButton type="button" value="Send" icon="fa fa-check"></p:commandButton>
+                                           </p:panel>
+                                       </div>
+                                       <div class="ui-g-12 ui-md-8">
+                                           <p:panel header="Tasks" style="height:100%">
+                                               <p:pieChart model="#{graficas.pieModel}" />
+                                           </p:panel>
+                                       </div>
+                   
+                 
+                    <div class="ui-g-12 ui-md-12">
+                        <p:panel header="Charts">
+
+                            <p:barChart model="#{graficas.barModel}" />
+                        </p:panel>
+                    </div>
+
+   -->
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:pi="http://primefaces.org/icarus"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <h:head>
+        <title>Besports</title>
+        <link rel="shortcut icon"  href="#{resource['images/icon/logo.svg']}" type="image/x-icon"/>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <h:outputScript name="particles.js" library="js" />
+        <h:outputStylesheet name="/landingpage.css" library="css" />
+        <script type="text/javascript">
+            function ScrollPage(location) {
+                window.location.hash = location;
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <div class="containerHeader">
+            <div id="particles-js"></div>
+            <div class="containMain contenedor">
+                <div class="item">
+                    <h1>Besports</h1>
+                    <h4>El sistema de información que tu escuela necesita</h4>
+                    <p>
+                        Realice la inscripción haciendo click en el siguiente botón
+                    </p>
+                    <button>Inscripción</button>
+                </div>
+                <div class="item">
+                    <p:graphicImage  class="image" name="Sport-family-pana.svg" library="images" />
+
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="contenedor">
+                <div class="containerL">
+                    <h2>  <p:graphicImage  class="image" name="logo/Logo_Besports.png" library="images" /></h2>
+                    <div class="containerLinks">
+                        <p:commandLink id="ajax"  action="#{buttonView.buttonAction}" style="margin-right:20px;">
+                            <h:outputText value="Ajax Submit" />
+                        </p:commandLink>
+
+                            <a href="">Portafolio</a>
+                            <a href="">Funcionalidades</a>
+                            <a href="">Acerca de</a>
+                            <a href="">Contacto</a>
+                    </div>
+                </div>
+                <div class="containerR">
+                    <p:button value="Iniciar Sesión" styleClass="rounded-button ui-button-danger " outcome="login" />
+
+                </div>
+            </div>
+        </nav>
+        <main>
+            <section id="about1" class="container about">
+                <h2 class="subtitle">Modúlos</h2>
+                <p class="about__paragraph">Aquí encontraras todos nuestros servicios</p>
+
+                <div class="about__main">
+                    <article class="about__icons">
+                        <p:graphicImage  class="image about__icon" name="ins.svg" library="images" />
+
+                        <h3 class="about__title">Inscripción</h3>
+                        <p class="about__paragrah">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae tempore
+                            porro eius facilis?</p>
+                    </article>
+
+                    <article class="about__icons">
+                        <p:graphicImage  class="image about__icon" name="citas.svg" library="images" />
+
+                        <h3 class="about__title">Citas</h3>
+                        <p class="about__paragrah">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae tempore
+                            porro eius facilis?</p>
+                    </article>
+
+                    <article class="about__icons">
+                        <p:graphicImage  class="image about__icon" name="reports.svg" library="images" />
+
+                        <h3 class="about__title">Reportes</h3>
+                        <p class="about__paragrah">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae tempore
+                            porro eius facilis?</p>
+                    </article>
+                </div>
+            </section>
+            <section class="knowledge">
+                <div class="knowledge__container container">
+                    <div class="knowledege__texts">
+                        <h2 class="subtitle">Funcionalidades de Besports</h2>
+                        <p class="knowledge__paragraph">
+                            <li>Nos destacamos por nuestra gran gestión</li>
+                            <li>Compañia 100% Colombiana</li>
+                            <li>Pensamos siempre en el bienestar del cliente</li>
+                        </p>
+                    </div>
+
+                    <figure class="knowledge__picture">
+                        <p:graphicImage  class="image knowledge__img" name="ventajas.svg" library="images" />
+
+                    </figure>
+                </div>
+            </section>
+            <section>
+                <form class="contacto">
+                    <div class="form_container">
+                        <h2 class="form_tittle"> Contáctanos </h2>
+                        <input type="text" class="form_input" placeholder="Nombre:" />
+                        <input type="text" class="form_input" placeholder="Teléfono:"/>
+                        <input type="text" class="form_input" placeholder="Correo:"/>
+                        <textarea class="form_input form_input--message" placeholder="Mensaje:"></textarea>
+
+                        <input type="submit" value="Enviar" class="form_cta"/>
+
+                    </div>
+                </form>
+            </section>
+            <footer class="pie-pagina">
+                <div class="grupo-1">
+                    <div class="box">
+                        <figure>
+                            <a href="#">
+                                <p:graphicImage  class="image" name="logo/Logo_Besports.png" library="images" />
+
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="box">
+                        <h2>SOBRE NOSOTROS</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                    </div>
+                    <div class="box">
+                        <h2>SIGUENOS EN</h2>
+                        <div class="social-media">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram "></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grupo-2">
+                    <small> 2022 <b>Besports</b> - Todos los Derechos Reservados.</small>
+                </div>
+            </footer>
+
+        </main>
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymus"/>
+        <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" />
+
+    </h:body>
+
+</html>

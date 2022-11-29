@@ -1,0 +1,21 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions">
+
+
+    <div id="sidebar-header">
+        <div id="logo-wrapper">
+            <p:link id="idNormandie" href="#{facesContext.externalContext.requestContextPath}/faces/Dashboard/Dashboard.xhtml" rendered="true" >
+                <h:graphicImage name="logo/logo.svg" id="logo" library="images"   />
+            </p:link>
+        </div>
+        <a id="slim-menu-button" href="#">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </a>
+    </div>
+
+
+</ui:composition>

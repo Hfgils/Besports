@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/resources/template/template.xhtml">
+
+    <ui:define name="content">
+        <div class="container">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <div class="card">
+                        <h1>Perfiles</h1>
+                        <h:form id="Fpagos">
+                            <p:panelGrid columns="2" layout="grid"  styleClass="ui-panelgrid-blank">
+
+                                <h:outputText value="Nombre Perfil: *" />
+                                <p:inputText value="#{perfilController.perfil.nombrePerfil}" required="true" label="Lastname">
+
+                                </p:inputText>
+
+                                <h:outputText value="Detalle Perfil: *" />
+                                <p:inputText value="#{perfilController.perfil.detallePerfil}" required="true" label="Lastname">
+                                </p:inputText>
+
+                                <h:outputText value="Empresa: " />
+                                <p:selectOneMenu style="width:110px" id="tdoc"  value="#{perfilController.empresa.idEmpresa}" effect="fold"  filter="true" filterMatchMode="startsWith">
+                                    <f:selectItem itemLabel="Select One" itemValue="0" />
+                                    <f:selectItems value="#{perfilController.empresas}" var="p" itemLabel="#{p.razonSocial}" itemValue="#{p.idEmpresa}" itemDescription="#{p.razonSocial}" />
+                                </p:selectOneMenu>
+                                <h:outputText value="Estado: " />
+                                <h:selectBooleanCheckbox value="#{perfilController.perfil.estado}" />
+                            </p:panelGrid>
+                            <h:panelGrid columns="1" columnClasses="label, value">
+                                <p:commandButton value="Submit" actionListener="#{tipoConfiguracionController.add()}"  update="Fpagos messages" />
+                            </h:panelGrid>
+                            <p:growl id="messages" showDetail="true" />
+
+                            <p:dataTable var="Tconf" value="#{perfilController.perfiles}" paginator="true"  rows="10" 
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="10,20,30,40,50">
+
+                                <p:column headerText="ID" sortBy="#{Tconf.idPerfil}" filterBy="#{Tconf.idPerfil}">
+                                    <h:outputText value="#{Tconf.idPerfil}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Nombre" sortBy="#{Tconf.nombrePerfil}" filterBy="#{Tconf.nombrePerfil}">
+                                    <h:outputText value="#{Tconf.nombrePerfil}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Detalle" sortBy="#{Tconf.detallePerfil}" filterBy="#{Tconf.detallePerfil}">
+                                    <h:outputText value="#{Tconf.detallePerfil}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="Empresa" sortBy="#{Tconf.idEmpresa.razonSocial}" filterBy="#{Tconf.idEmpresa.razonSocial}">
+                                    <h:outputText value="#{Tconf.idEmpresa.razonSocial}">
+
+                                    </h:outputText>
+                                </p:column>
+                                <p:column headerText="ESTADO" sortBy="#{Tconf.estado}" filterBy="#{Tconf.estado}">
+                                    <h:outputText value="#{Tconf.estado}">
+
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                            <p:separator />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>
